@@ -28,8 +28,13 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
          rb.AddForce (movement * speed);
+          if(Input.GetKeyDown(KeyCode.RightAlt))
+        {
+            rb.AddForce (movement * (speed * 100));
+        } 
 
         Break();
+        // Turbo(movement);
     }
 
     void Break()
@@ -42,6 +47,18 @@ public class PlayerController : MonoBehaviour {
             rb.drag = 0;
         }
     }
+
+    // void Turbo(Vector3 movement)
+    // {
+    //       if(Input.GetKeyDown(KeyCode.RightAlt))
+    //     {
+    //         rb.AddForce (movement * (speed * 100));
+    //         speed = 50;
+    //     } 
+    //     // else {
+    //     //     rb.drag = 0;
+    //     // }
+    // }
 
     void OnTriggerEnter(Collider other) 
     {
