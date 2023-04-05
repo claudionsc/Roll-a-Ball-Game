@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour {
 
          rb.AddForce (movement * speed);
 
+        Break();
+    }
+
+    void Break()
+    {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             rb.drag = 8;
