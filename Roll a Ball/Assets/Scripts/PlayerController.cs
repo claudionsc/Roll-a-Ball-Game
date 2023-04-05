@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     private Rigidbody rb;
     private int count;
 
+
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,7 +27,15 @@ public class PlayerController : MonoBehaviour {
 
         Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce (movement * speed);
+         rb.AddForce (movement * speed);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.drag = 8;
+        } 
+        else {
+            rb.drag = 0;
+        }
     }
 
     void OnTriggerEnter(Collider other) 
