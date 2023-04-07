@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class ButtonActions : MonoBehaviour
 {
-    
+    public string Start = "Start";
+    public LevelLoader levelLoader;
+
     public void StartGameOnClick()
+
     {
-        SceneManager.LoadScene("Start");
+        levelLoader.Transition(Start);
     }
 
-    public void RestartGameOnClick()
+    public void QuitGameOnClick()
     {
-        SceneManager.LoadScene("Start");
+        Application.Quit();
     }
 }
